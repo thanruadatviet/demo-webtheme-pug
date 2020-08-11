@@ -1,0 +1,24 @@
+
+// Links
+a {
+  text-decoration: none;
+  &:active, &:hover {
+    outline: 0;
+  }
+}
+
+// List
+ul, li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Default
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: border-box; }
+:focus { outline: 0; }
+
+img, audio, video { max-width: 100%; height: auto; }
+audio, canvas, iframe, video, img, svg { vertical-align: middle; }
+iframe { border: 0 }

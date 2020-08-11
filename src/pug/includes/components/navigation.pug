@@ -1,0 +1,59 @@
+mixin child(item)
+  //- check url 
+  if (item.url === '')
+    a.nav-link.disabled(href='#', tabindex="-1", aria-disabled="true")!= item.title
+  else
+    a.nav-link(href=item.url)!= item.title
+  //- check child
+  if item.child
+    ul
+      each childItem in item.child
+        li(class=childItem.className, id=childItem.id)
+          +child(childItem)
+
+
+
+mixin navigation(className, arrMenu)
+  unless className
+    -const className = 'navigation'
+  -
+    const defaultMenu = [
+      { title: '<i class="fa fa-home"></i> Trang chủ', className: 'active', url: '/'},
+      { title: 'Giới thiệu', className: '', url: './about.html'},
+      { title: 'Dự án', className: 'has-sub', url: './project.html', id: 'navProject',
+        child: [
+          { title: 'Đã thi công', className: '', url: './project.html'},
+          { title: 'Dự thiết kế', className: '', url: './project.html',},
+          { title: 'Dự án lẻ', className: '', url: './project.html',}
+        ]
+      },
+      { title: 'Nội thất gỗ óc chó', className: 'has-sub', url: '#', id: 'navWalnut',
+        child: [
+          { title: 'Bàn sofa', className: '', url: '#'},
+          { title: 'Giường', className: '', url: '#'},
+          { title: 'Tủ', className: '', url: '#'}
+        ]
+      },
+      { title: 'Sản phẩm khác', className: 'has-sub', url: './product.html', id: 'navProduct',
+        child: [
+          { title: 'Bàn sofa', className: '', url: './product.html'},
+          { title: 'Bàn tròn', className: '', url: './product.html'}
+        ]
+      },
+      { title: 'Báo giá', className: '', url: './price.html'},
+      { title: 'Video', className: '', url: './video.html'},
+      { title: 'Liên hệ', className: '', url: './lien-he.html'}
+    ]
+  -const menu = arrMenu || defaultMenu
+  //- Navigation
+  div(class=className)
+    ul
+      each item in menu
+        li(class=item.className, id=item.id)
+          +child(item)
+
+mixin nav(classNav, className, arrMenu)
+  //- Navbar
+  nav(class=classNav)
+    +navigation(className, arrMenu)
+    block

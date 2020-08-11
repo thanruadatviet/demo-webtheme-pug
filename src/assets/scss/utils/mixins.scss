@@ -1,0 +1,36 @@
+// // px to rem
+// @function rem($pixels, $context: $mainFontSize) {
+//   @if (unitless($pixels)) {
+//     $pixels: $pixels * 1px;
+//   }
+//   @if (unitless($context)) {
+//     $context: $context * 1px;
+//   }
+//   @return $pixels / $context * 1rem;
+// }
+
+@mixin size($width,$height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin btn-default($main-color: $main-color, $bg-color: $white) {
+  color: $main-color;
+  background: $bg-color;
+  border-radius: 20px;
+  padding: 6px 20px;
+  font-size: .85em;    
+  text-transform: uppercase;
+  &:hover{
+    border: 1px solid $bg-color;
+    background: $main-color;
+    color: $bg-color;
+  }
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}
+}
