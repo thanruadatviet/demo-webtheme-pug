@@ -1,3 +1,3 @@
 # demo-webtheme-pug
 
-Demo webtheme with pug
+Demo webtheme with pug for studying purpose
