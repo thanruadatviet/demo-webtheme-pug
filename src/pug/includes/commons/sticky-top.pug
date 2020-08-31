@@ -1,0 +1,29 @@
+include ../modules/navigation
+//- sticky-top
+mixin sticky-top
+    .sticky-top
+        //- Navigation
+        section.nav-container
+            .container
+                +nav('nav-main', 'navigation')
+                    //- Search
+                    .nav-right
+                        button.btn.btn-toggle.btn-noti-toggle: i.fa.fa-award
+                        button.btn.btn-toggle.btn-search-toggle: i.fa.fa-search
+        //- .nav-container                
+        section.noti-nav
+            //- Link   
+            .container
+                .d-flex.justify-content-center
+                    a.noti-link.text-uppercase(href="./chi-tiet-san-pham.html")
+                        img(src="./assets/img/pointer-cursor.png" alt="")
+                        strong  100% 
+                        | nhập khẩu gỗ Óc chó Bắc Mỹ
+        //- .noti-nav
+        section.search
+            .container
+                .d-flex.flex-row-reverse
+                    form.form-inline.my-2.my-lg-0.search-form
+                        input.form-control.mr-sm-2.search-box(type="search" placeholder="Nhập từ khóa" aria-label="Search")
+                        button.btn.btn-success.my-2.my-sm-0.btn-search(type="submit"): i.fa.fa-search
+                    button.btn.btn-success.my-2.my-sm-0.btn-search-close: i.fa.fa-times

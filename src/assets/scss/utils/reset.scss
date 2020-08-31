@@ -1,8 +1,8 @@
-
 // Links
 a {
   text-decoration: none;
   &:active, &:hover {
+    text-decoration: none;
     outline: 0;
   }
 }

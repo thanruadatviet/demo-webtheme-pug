@@ -1,0 +1,164 @@
+extends ../layout/main
+
+block variables
+    - const title = 'Chi tiết sản phẩm'
+    -
+        const sideList = ['Bàn ghế Sofa gỗ',
+                            'Giường ngủ',
+                            'Giường ngủ cho trẻ em',
+                            'Kệ tivi gỗ',
+                            'Bàn ghế ăn',
+                            'Bàn phấn trang điểm',
+                            'Bàn trà',
+                            'Sofa nỉ - sofa da',
+                            'Tủ bếp',
+                            'Tủ giầy',
+                            'Tủ quần áo',
+                            'Vách ngăn phòng']
+
+block content
+    +current-page
+    //- section-detail
+    section.section
+        .container
+            .row
+                .col-md-9
+                    .slide-content-1.owl-carousel
+                        +carousel(10, 'slide')
+                    .slide-content-6.owl-carousel
+                        +carousel(10, 'slide')
+                    //- Info
+                    .section
+                        .section__header
+                            h3.section__name Bàn ghế gỗ phòng khách giá rẻ tại Hà Nội - TC143
+                        .info
+                            .row
+                                .col-sm-4
+                                    .info--block
+                                        .thumbs-circle
+                                        .info--inline-block
+                                            .section__title.text-uppercase
+                                                h5.section__name Tư vấn miễn phí
+                                            span Tư vấn miễn phí tại nhà!
+                                .col-sm-4
+                                    .info--block
+                                        .thumbs-circle
+                                        .info--inline-block
+                                            .section__title.text-uppercase
+                                                h5.section__name Bảo hành 2 năm
+                                            span Chất lượng sản phẩm là vàng!
+                                .col-sm-4
+                                    .info--block
+                                        .thumbs-circle
+                                        .info--inline-block
+                                            .section__title text-uppercase
+                                                h5.section__name Vận chuyển miễn phí
+                                            span Trong nội thành Hà Nội và HCM
+                        .d-flex.justify-content-center.text-uppercase
+                            a.btn.btn-lg.btn-neon.px-5(href="#dat-hang") Đặt hàng
+                                span
+                                span
+                                span
+                                span
+                    //- Info-detail
+                    .section
+                        .detail--bg-gray
+                            a.detail__link.active(href="#chi-tiet") Chi tiết
+                            a.detail__link(href="#dat-hang") Đặt hàng
+                            a.detail__link(href="#san-pham-lien-quan") Sản phẩm liên quan
+                        //- chi-tiet
+                        .detail--bg#chi-tiet
+                            .section__title
+                                h5.detail__title.section__header--underline Chi tiết
+                            p Mẫu giường ngủ nội thất mới nhất GT3
+                            ul
+                                li Chất liệu gỗ óc chó
+                                li Thiết kế hiện đại
+                                li Phù hợp với hộ gia đình
+                            p Bức tường trong phòng khách không dùng sơn truyền thống, thay vào đó là giấy dán tường đẹp màu sắc nhã nhặn. Đặc biệt, một góc tường sử dụng decal gạch bông độc đáo bắt kịp xu hướng trang trí nhà cửa mới nhất trong năm
+                            p Phòng khách được tối giản nội thất, chỉ bố trí đồ đạc thực sự cần thiết nhất như ghế sofa đơn giản với khung ghế làm từ gỗ sồi tự nhiên, đệm vải nỉ cao cấp, bàn trà nhỏ gọn hình tròn, hay chiếc đèn cây trang trí cung cấp nguồn sáng thích hợp cho căn phòng…
+                            p Thiết kế nội thất phòng bếp sử dụng gam màu pastel chủ đạo mang đến cảm giác gần gũi, trẻ trung và tươi mới.
+                        //- dat-hang
+                        .detail__register.section--border-top#dat-hang
+                            .text-center
+                                h5.detail__title.text-uppercase.light-underline Đăng ký tư vấn
+                            br
+                            .row.justify-content-center
+                                .col-sm-10
+                                    p Thông tin đăng ký tư vấn, trao đổi cùng chúng tôi.
+                                    form(action="")
+                                        .form-group.row
+                                            label.col-sm-3.col-form-label(for="name") Họ tên:
+                                            .col-sm-9
+                                                input#name.form-control(type="text", name="name", placeholder="Nhập họ tên...")
+                                        .form-group.row
+                                            label.col-sm-3.col-form-label(for="phone") Số điện thoại:
+                                            .col-sm-9
+                                                input#phone.form-control(type="text", name="phone", placeholder="Nhập số điện thoại...")
+                                        .form-group.row
+                                            label.col-sm-3.col-form-label(for="email") Email:
+                                            .col-sm-9
+                                                input#email.form-control(type="email", name="email", placeholder="Nhập email...")
+                                        .form-group.row
+                                            label.col-sm-3.col-form-label(for="address") Địa chỉ:
+                                            .col-sm-9
+                                                input#address.form-control(type="text", name="address", placeholder="Nhập địa chỉ...")
+                                        .form-group.row
+                                            label.col-sm-3.col-form-label(for="message") Nội dung:
+                                            .col-sm-9
+                                                textarea#message.form-control(name="message", rows="5", placeholder="Nhập nội dung mô tả thông tin bạn muốn trao đổi...")
+                                        .row
+                                            .col-sm-3
+                                            .col-sm-9
+                                                button.btn.btn-block.btn-lg.btn-neon(type="submit") Đăng ký tư vấn
+                                                    span
+                                                    span
+                                                    span
+                                                    span
+                        //- san-pham-lien-quan
+                        .detail--bg.detail--bg-gray#san-pham-lien-quan
+                                .section__title
+                                    h5.detail__title.section__header--underline Sản phẩm liên quan
+                                .slide-content-3.owl-carousel
+                                    +otherProduct(5)
+                .col-md-3
+                    .side-content
+                        h5.side-title Danh mục
+                        ul.side-list
+                            +sideList(sideList)
+                    .side-content
+                        h5.side-title Video
+                        img.img-fluid.mt-2(src="./assets/img/slide.jpg" alt="")
+                        ul.side-list
+                            +sideList(['Giới thiệu về chúng tôi'])
+    //- Section 2
+    section.section
+        .container
+            +section-header({
+                headerClass: '',
+                titleClass: '',
+                name: 'Công trình đã thi công',
+                description: 'Lorem ipsum dolor Lorem ipsum dolor',
+                hasReadMore: true
+            })
+        .container-fluid
+            .row
+                .col-sm-6.col-md-3
+                    a(href="#"): img.img-fluid(src="./assets/img/banner1.png" alt="slide")
+                .col-sm-6.col-md-9
+                    .slide-content-3.owl-carousel
+                        +carousel(8)
+    //- Section 6
+    section.section.section--border-bottom
+        .container
+            +section-header({
+                headerClass: 'text-center',
+                titleClass: 'flex-fill',
+                name: 'Báo chí nói về chúng tôi',
+                description: 'Lorem ipsum dolor Lorem ipsum dolor',
+                hasReadMore: false
+            })
+            .owl-carousel.partner
+                - let n = 0;
+                while n < 9
+                    +carousel(1, "partner", `./assets/img/partners/partner${++n}.png`)

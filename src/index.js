@@ -1,13 +1,16 @@
 // JS
+// import './js/'
 import './js/main'
-import './js/commons/btn-back-to-top'
-import './js/components/navigation'
+import './js/navigation'
 
 // SCSS
 import './assets/scss/main.scss'
 
 // CSS (example)
 // import './assets/css/main.css'
+
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
 
 // // Vue.js
 // window.Vue = require('vue')

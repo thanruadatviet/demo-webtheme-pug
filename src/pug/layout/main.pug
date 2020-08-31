@@ -1,28 +1,36 @@
+include ../utils/variables
 include ../utils/mixins
+
 block variables
 
 doctype html
-html(lang='en')
+html(lang='vi')
   head
     meta(charset='utf-8')
     title #{title}
-    meta(name="description", content=description)
-    block head
-      meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
     block styleLibs
       link(rel="stylesheet", href="./assets/libs/OwlCarousel2-2.3.4/owl.carousel.min.css")
       link(rel="stylesheet", href="./assets/libs/bootstrap-4.4.1/css/bootstrap.min.css")
       link(rel="stylesheet", href="./assets/libs/fontawesome-5.12.1/css/all.min.css")
     block styles
 
-  body(class=pageClass)
-    include ../includes/modules/header
 
-    block content
+  body
+    block header
+      header#top
+        +header
+    block common
+      +sticky-top
+      +fixed-contact
       +btn-back-to-top
-      
-    include ../includes/modules/footer
-
+    block content
+    block footer
+      footer
+        +footer-contact
+        .footer-bg
+          +footer-main
+          +copyright
     block script
       script(src="./assets/libs/jQuery/jquery-3.4.1.min.js")
       script(src="./assets/libs/bootstrap-4.4.1/js/bootstrap.min.js")

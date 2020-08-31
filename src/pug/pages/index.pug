@@ -1,20 +1,139 @@
 extends ../layout/main
 
 block variables
-  - var title = 'Home page';
-  - var description = 'Description for Webpack + Pug';
-  - var pageClass = 'index-page';
+  - const title = 'Home Page'
+  -
+    const aboutList = [
+      {title: 'Thư mời hợp tác', desc: 'Lorem ipsum content lorem ipsum content'},
+      {title: 'Quá trình phát triển', desc: 'Lorem ipsum content lorem ipsum content'},
+      {title: 'Năng lực cạnh tranh', desc: 'Lorem ipsum content lorem ipsum content'},
+      {title: 'Triết lý kinh doanh', desc: 'Lorem ipsum content lorem ipsum content'}
+    ]
+  -
+    const productList = [
+      {name: 'Ghế đẩu', img: 'effect14.jpg'},
+      {name: 'Tủ bàn', img: 'effect15.jpg'},
+      {name: 'Kệ sách', img: 'effect16.jpg'},
+      {name: 'Bàn', img: 'effect17.jpg'},
+      {name: 'Giường', img: 'effect18.jpg'},
+      {name: 'Treo tường', img: 'effect19.jpg'}
+    ]
+  - const otherList = ['Ghế bàn', 'Sofa', 'Đèn trần', 'Ghế đẩu', 'Tủ Tivi', 'Bàn nước', 'Bàn kiểu', 'Đồng hồ kiểu', 'Tủ chè', 'Tranh', 'Cửa sổ']
+
+
+append styleLibs
+  link(rel="stylesheet", href="./assets/libs/OwlCarousel2-2.3.4/owl.theme.default.min.css")
 
 block content
-  section
+  //- Main-carousel
+  .slider.owl-carousel.owl-theme
+    +carousel(3)
+  //- Section 1
+  section.section.section--bg-gray
+      .container
+        +section-header({
+          headerClass: '',
+          titleClass: '',
+          name: 'Dự án thiết kế',
+          description: 'Lorem ipsum dolor Lorem ipsum dolor',
+          hasReadmore: true
+        })
+      .container-fluid
+        .slide-content-4.owl-carousel
+          +carousel(8, 'slide')
+  //- Section 2
+  section.section
+      .container
+        +section-header({
+          headerClass: '',
+          titleClass: '',
+          name: 'Công trình đã thi công',
+          description: 'Lorem ipsum dolor Lorem ipsum dolor',
+          hasReadmore: true
+        })
+      .container-fluid
+        .row
+          .col-sm-6.col-md-3
+            a(href="#"): img.img-fluid(src="./assets/img/banner1.png" alt="slide")
+          .col-sm-6.col-md-9
+            .slide-content-3.owl-carousel
+              +carousel(8, 'slide')
+  //- Section-about
+  section.section.section--bg-green.section--border-bottom
+    .section--bg-brand
+      .container
+        +section-header({
+          headerClass: 'text-center',
+          titleClass: 'section__title--light flex-fill',
+          name: 'Giới thiệu năng lực',
+          description: 'Lorem ipsum dolor Lorem ipsum dolor',
+          hasReadmore: false
+        })
+        .about-cover
+          .row
+            .col-md-8
+              a(href="#"): img.img-fluid(src="./assets/img/about-cover.jpg" alt="about")
+            .col-md-4
+              +about-list(aboutList)
+  //- Section-product
+  section.section
     .container
-  example-component
+      +section-header({
+        headerClass: '',
+        titleClass: '',
+        name: 'Nội thất gỗ óc chó',
+        description: 'Lorem ipsum dolor Lorem ipsum dolor',
+        hasReadmore: true
+      })
+    .container-fluid
+      .row
+        +productList(productList)
+  //- Section-other-products
+  section.section.section--bg-gray
+    .container
+      .row
+        .col-sm-6.col-md-3
+          .section-other--left
+            .section-other__header.text-uppercase
+              .section__title
+                h3.section__name Sản phẩm khác       
+            ul.other-list.text-uppercase
+              +otherList(otherList)    
+              a.txt-readmore.active(href="#") Xem thêm
+        .col-sm-6.col-md-9
+          .d-flex.justify-content-between
+            ul.nav.nav-tabs(role="tablist")
+              li.nav-item
+                a.btn.btn-default.active#sp-moi-tab(data-toggle="tab", href="#sp-moi", role="tab", aria-controls="sp-moi", aria-selected="true") Sản phẩm mới
+              li.nav-item
+                a.btn.btn-default#sp-ban-chay-tab(data-toggle="tab", href="#sp-ban-chay", role="tab", aria-controls="sp-ban-chay", aria-selected="false") Sản phẩm bán chạy
+              li.nav-item
+                a.btn.btn-default#sp-khuyen-mai-tab(data-toggle="tab", href="#sp-khuyen-mai", role="tab", aria-controls="sp-khuyen-mai", aria-selected="false") Sản phẩm khuyến mãi
+            ul.nav
+              li.nav-item: button.btn.btn-default#spPrevOwl: i.fa.fa-chevron-left
+              li.nav-item: button.btn.btn-default#spNextOwl: i.fa.fa-chevron-right
+          .tab-content
+            .tab-pane.fade.show.active#sp-moi(role="tabpanel", aria-labelledby="sp-moi-tab")
+              .sp-slide.owl-carousel
+                +otherProduct(5, 'Mẫu giường ngủ nội thất mới nhất GT3')
+            .tab-pane.fade#sp-ban-chay(role="tabpanel", aria-labelledby="sp-ban-chay-tab")
+              .sp-slide.owl-carousel
+                +otherProduct(5, 'Tủ áo nội thất bán chạy nhất ST4')
+            .tab-pane.fade#sp-khuyen-mai(role="tabpanel", aria-labelledby="sp-khuyen-mai-tab")
+              .sp-slide.owl-carousel
+                +otherProduct(5, 'Mẫu ghế sofa nội thất khuyến mãi tháng 3')
+  //- Section 6
+  section.section.section--border-bottom
+    .container
+      +section-header({
+        headerClass: 'text-center',
+        titleClass: 'flex-fill',
+        name: 'Báo chí nói về chúng tôi',
+        description: 'Lorem ipsum dolor Lorem ipsum dolor',
+        hasReadmore: false
+      })
+      .owl-carousel.partner
+        - let n = 0;
+        while n < 9
+          +carousel(1, "partner", `./assets/img/partners/partner${++n}.png`)
 
-
-block script
-  script(type='text/javascript').
-    const foo = true;
-    let bar = function() {};
-    if (foo) {
-    bar(1 + 5)
-    }

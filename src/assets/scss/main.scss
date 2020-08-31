@@ -1,15 +1,317 @@
-@import "utils/libs";
-@import "utils/vars";
-@import "utils/mixins";
-@import "utils/fonts";
-@import "utils/reset";
+@import 'utils/vars';
+@import 'utils/mixins';
+@import 'utils/reset';
+@import 'modules/header';
+@import 'modules/footer';
+@import 'modules/common';
+@import 'modules/navigation';
+@import 'modules/btn-neon';
 
-// Components
-@import "components/navigation";
-@import "components/top";
+body{
+  font-size: 14px;
+}
+
+/* LAYOUT */
+.section {
+  padding: 30px 0;
+  &__header{
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    &--underline{
+      border-bottom: 1px solid rgba($main-color, $alpha: 0.4);
+    }
+  }
+  &__name{
+    font-weight: bold;
+    margin: 0;
+  }
+  &__title{
+    color: $main-color;
+    &--light{
+      color: $light-color;
+    }
+  }
+  &--bg-brand{    
+    background: transparent url('../img/LogoBranding.png') no-repeat;
+    background-size: contain;
+  }
+  &--bg-gray{
+    background: $white-color2;
+  }
+  &--bg-green{
+    background: $main-color;
+  }
+  &--bg-dark-green{
+    background: $dark-green;
+  }
+  &--border-bottom{
+    border-bottom: 2px solid $border-color;
+  }
+  &--border-top{
+    border-top: 2px solid $border-color;
+  }
+}
+
+.btn-default{
+  @include btn-default();
+  &.active{
+    color: $white;
+    background: $main-color;
+  }
+}
+.btn-readmore{
+  @include btn-default($white, $main-color);
+}
+
+// Slider
+.slide-img{
+  width: 100%;
+}
+
+// Breadcrumb
+.breadcrumb{
+  background-color: transparent;
+  border-radius: 0;
+  a{
+      color: $main-color;
+  }
+  &--bg{
+    background: $white-bg;
+    font-size: small;
+  }
+}
+
+// Info
+.info{
+  position: relative;
+  margin-bottom: 20px;    
+  background: $gray-bg;
+  padding: 25px;
+  border: 1px solid $white-color;
+  &--inline-block{
+    display: inline-block;
+    overflow: hidden;
+  }
+  &--block{
+    width: 100%;
+  }
+}
+.thumbs-circle{
+  display: inline-block;
+  @include size(100px);
+  background: #4d8737;
+  border-radius: 50%;
+}
+
+// Detail
+.detail{
+  &__title{
+    display: inline-block;
+    padding: 6px 0;
+    margin-bottom: 15px;
+    &--light-underline{
+      border-bottom: 1px solid $white;
+    }
+  }
+  &__register{
+    background: $main-color url("../img/LogoBranding.png") no-repeat;
+    color: $white;
+    padding: 15px;
+  }
+  &__link{
+    display: inline-block;
+    padding: 10px 20px;
+    color: $main-color;
+    font-weight: 600;
+    &.active, &:hover{
+      color: $white;
+      background-color: $main-color;
+    }
+  }
+  &--bg-gray{
+    border: 1px solid $white-color; 
+    background: $gray-bg;
+  }
+  &--bg{
+    padding: 15px;
+    border: 1px solid $white-color;
+  }
+}
+#chi-tiet{
+  ul{
+    margin-bottom: 1rem;
+    padding-left: 40px;
+    li{
+      display: list-item;
+      list-style: disc;
+    }
+  }
+  
+}
+
+// Other product
+.other-product{
+  display: block;
+  color: $gray-color2;
+  background: $white;
+  text-align: center;
+  border-radius: 5px;
+  margin: 20px 0;
+  box-shadow: 1px 1px 2px $white-color;
+  &:hover{
+    color: $green-color;
+  };
+  &__item{
+    overflow: hidden;
+  };
+  &__img{
+    width: 100%;
+    transition: .3s;
+    &:hover{
+      transform: rotate(2deg) scale(1.2);
+    }
+  };
+  &__detail{
+    display: block;
+    padding: 30px 20px;
+    font-weight: 600;
+  }
+}
+.search{
+  display: none;
+}
+
+/* Other list */
+.section-other--left{
+  padding-left: 15px;
+}
+.section-other__header{
+  padding: 10px 0;
+}
+.other-list{
+  li{
+    border-bottom: 1px solid rgba($main-color, $alpha: 0.1);
+    &:last-child{
+      border: none;
+    }
+    a{
+      display: block;
+      color: $gray-color;
+      padding: 6px 0;
+      font-weight: 600;
+      transition: padding .3s;
+      &:hover{
+        padding-left: 12px;
+        color: $light-color;
+        background: $main-color;
+      }
+    }
+  }
+}
+.txt-readmore{
+  color: $gray-color;
+  display: inline-block;
+  padding: 6px 0;
+  &:hover{
+    color: $main-color;
+  }
+}
+
+// Side content
+.side-content{
+  padding: 15px;
+  border: 1px solid $white-color;
+}
+.side-title{
+  color: $main-color;
+  border-bottom: 1px solid $white-color;
+  padding-bottom: 15px;
+}
+.side-list{
+  margin-top: 20px;
+  li{
+    color: $gray-color2;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+}
+.side-item{
+  color: $gray-color2;
+  font-weight: 600;
+  margin-bottom: 10px;
+  i{
+    transition: margin .3s;
+  }
+  &:hover{
+    color: $green-color;
+    i{
+      margin-right: 10px;
+    }
+  }
+}
+
+/* About */
+.about-cover{
+  margin: 20px auto;
+  padding: 15px 0;
+  max-width: 820px;
+  border-radius: 10px;
+  background-color: rgba($white, $alpha: 0.96);
+}
+.about-list{
+  color: $yellow-color;
+  @media (max-width: $screen-md) {
+    padding-left: 15px;
+    margin-top: 10px;
+  }
+}
+.about-item {
+  h5{
+    margin: 0;
+  }
+  &:not(:last-child){    
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba($yellow-color, $alpha: 0.08);
+  }
+  &__title{    
+    color: $yellow-color;
+    font-weight: bold;
+    font-size: 1rem;
+    padding-top: 5px;
+    &:hover{
+      color: $main-color;
+    }
+  }
+  &__desc{
+    font-size: smaller;
+  }
+}
+
+/* Product */
+.product-link{
+  color: $gray-color3;
+  font-size: 2em;
+  font-weight: bold;
+  &:hover{
+    color: $gray-color3;
+  }
+}
+.product-item{
+  position: relative;
+  margin-bottom: 30px;
+}
+.product-label{
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+}
 
 
-// Modules
-// @import "modules/my-module.scss";
-@import "modules/header";
-@import "modules/footer";
+/* Contact */
+.contact-title{
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}

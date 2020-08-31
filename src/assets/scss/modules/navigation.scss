@@ -1,0 +1,202 @@
+$nav-mobile-width: 250px;
+
+// Navigation
+.nav-container{
+  color: $light-color;
+  background-color: $main-color;
+  border-bottom: 4px solid $light-color;
+}
+.nav-main{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.navigation{
+  display: inline-block;
+  position: relative;
+  &>ul{
+    z-index: 99;
+    &>li{
+      display: inline-block;
+      margin-right: 1px;
+      &>.nav-link{
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+li.has-sub{
+  position: relative;
+  ul{
+    display: none;
+  }
+}
+.nav-link{
+  color: $light-color;
+  background: $main-color;
+  padding: 10px 16px;
+  transition: background .3s;
+}
+.nav-link:hover,
+li.active .nav-link,
+li.has-sub ul li .nav-link,
+.btn-toggle{
+  color: $main-color;
+  background: $light-color;
+}
+.nav-icon{
+  display: block;
+  position: absolute;
+  @include size(30px);
+  box-sizing: border-box;
+  margin-top: 8px;
+  &::before,
+  &::after,
+  span{
+    content: '';
+    display: block;
+    @include size(20px, 2px);
+    background: $light-color;
+    margin: 5px auto;
+    transition: all 0.6s ease;
+  }
+}
+
+
+// PC
+@media (min-width: $screen-md){
+  li.has-sub:hover{
+    ul{
+      display: block;
+      position: absolute;
+      width: 190px;
+      border-top: 2px solid $green-color;
+      li{
+        display: block;
+        white-space: nowrap;
+      }
+    }
+  }
+  li.has-sub ul li .nav-link:hover{
+    color: $light-color;
+    background: $main-color;
+  }
+  .nav-icon,
+  .sub-icon{
+    display: none;
+  }
+}
+
+// mobile
+@media (max-width: $screen-md){
+  .navigation{
+    top: 0;
+    left: 0;
+    &>ul{
+      position: fixed;
+      top: 0;
+      left: $nav-mobile-width * -1;
+      height: 100%;
+      width: $nav-mobile-width;
+      padding-top: 100px;
+      background: $main-color url(../img/logo.png) no-repeat center 15px/33% auto;
+      transition: all 0.3s ease;
+      li{
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid rgba($color: $light-color, $alpha: 0.15);
+        &:first-child{
+          border-top: 1px solid rgba($color: $light-color, $alpha: 0.15);
+        }
+      }
+    }
+  }
+  li.active .nav-link{
+    color: $light-color;
+    background: $main-color;
+  }
+  li.has-sub{
+    ul{
+      background: $light-color;
+      color: $main-color;
+      padding: 0;
+    }
+    &--open>ul{
+      display: block;
+      &>li{
+        padding: 0 15px;
+        font-size: 0.95em;
+        border-top: 1px solid rgba($color: $main-color, $alpha: 0.25);
+      }
+    }
+  }
+  .nav-backdrop{
+    position: fixed;
+    background: rgba($color: $black, $alpha: 0.3);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 90;
+  }
+  .nav-open{
+    ul{
+      display: block;
+      left: 0;
+    }
+    .nav-icon{
+      position: fixed;
+      top: 0;
+      left: $nav-mobile-width;
+      span{
+        display: none;
+      }
+      &::before{
+        transform: rotate(45deg);
+        margin-top: 10px;
+      }
+      &::after{
+        transform: rotate(-45deg);
+        margin-top: -7.5px;
+      }
+    }
+  }
+  .nav-icon{
+    transition: all 0.6s ease;
+  }
+  .sub-icon{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include size(40px, 100%);
+    padding: 8px;
+    text-align: center;
+    border-left: 1px solid rgba($color: $light-color, $alpha: 0.15);
+  }
+  .nav-link>i{
+    display: none;
+  }
+}
+
+
+// noti
+.noti-nav{
+  background-color: #3b311d99;
+}
+.noti-link{
+  color: $light-color;
+  padding: 5px;
+  &:hover{
+      color: $light-color;
+      text-decoration: underline;
+  }
+}
+.btn-toggle{
+  box-sizing: border-box;
+  border-radius: 0;
+  padding: 7.5px 16px;
+  margin-right: 2px;
+}

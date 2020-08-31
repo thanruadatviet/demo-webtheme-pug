@@ -1,0 +1,6 @@
+//- Carousel 
+
+mixin carousel(slides, name, link)
+    - for (var i = 0; i < slides; i++)
+        a.silde-link(href="#")
+            img.slide-img(src=link || './assets/img/slide.jpg', alt=name)
