@@ -1,111 +1,111 @@
 extends ../layout/main
 
 block variables
-    - const title = 'Liên hệ'
+  - const title = 'Liên hệ'
 
 
 block content
-    +current-page
-    //- Page title
-    section.section
-        .container
-            .section__header.text-uppercase
-                .section__title
-                    h3.section__name Liên hệ
-            //- Nav-tabs
-            ul.nav.nav-tabs.text-uppercase
-                li.nav-item
-                    a.detail__link.active(data-toggle="tab", href="#tabHN") Hà nội
-                li.nav-item
-                    a.detail__link(data-toggle="tab", href="#tabHCM") HCM
-        //- Tab panes
-        .tab-content
-            .container-fluid.tab-pane.fade.active#tabHN
-                iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3725.5665005514147!2d105.768476!3d20.969917!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134532791635c5f%3A0x1d24e5bddca2966a!2zMTU3IE5ndXnhu4VuIFZp4bq_dCBYdcOibiwgSMOgIEPhuqd1LCBIw6AgxJDDtG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2sus!4v1592904870022!5m2!1svi!2sus" frameborder="0" style="border:0; height:75vh; width:100%" allowfullscreen="" aria-hidden="false")
-            .container-fluid.tab-pane.fade#tabHCM
-                iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15674.683110869026!2d106.667954!3d10.836487!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xaa773ad9dadb59e1!2zTuG7mWkgdGjhuqV0IEFuIEjGsG5n!5e0!3m2!1svi!2sus!4v1592904771256!5m2!1svi!2sus" frameborder="0" style="border:0; height:75vh; width:100%" allowfullscreen="" aria-hidden="false")
-    //- hard-break
+  +current-page
+  //- Page title
+  section.section
     .container
-        hr
-    //- Form
-    section.section
-        div.container
-            div.row
-                div.col-md-4
-                    h5.contact-title Công ty sản xuất nội thất an hưng
-                    p
-                        i.fa.fa-globe-americas
-                        strong  Giấy phép kinh doanh số: 
-                        | 0107017623 do phòng Kinh doanh sở KH&ĐT TP Hà Nội cấp ngày: 06/10/2015
-                    br
-                    p
-                        i.fa.fa-credit-card
-                        strong  Ngân hành BIDV: Trần Đăng Dũng 
-                        | 1991.0000.263.050
-                    p
-                        i.fa.fa-credit-card
-                        strong  TECHCOMBANK: Trần Đăng Dũng 
-                        | 1902.3397.720.013
-                    p
-                        a(href="#")
-                            i.fab.fa-facebook-square
-                            |  
-                        a(href="#")
-                            i.fab.fa-twitter-square
-                            |  
-                        a(href="#")
-                            i.fab.fa-linkedin
-                            |  
-                        a(href="#")
-                            i.fab.fa-youtube-square
-                    p Mở cửa: 8h30 - 20h30 kể cả thứ 7 và CN, có vị trí đậu xe ôtô
-                .col-md-8
-                    h5.contact-title Liên hệ góp ý
-                    form(action="")
-                        .form-group
-                            label(for="name") Họ tên
-                            input#name.form-control(type="text" name="name" placeholder="Nhập họ tên...")
-                        .form-group
-                            label(for="phone") Số điện thoại
-                            input#phone.form-control(type="text" name="phone" placeholder="Nhập số điện thoại...")
-                        .form-group
-                            label(for="email") Email
-                            input#email.form-control(type="email" name="email" placeholder="Nhập email...")
-                        .form-group
-                            label(for="address") Địa chỉ
-                            input#address.form-control(type="text" name="address" placeholder="Nhập địa chỉ...")
-                        .form-group
-                            label(for="message") Lời nhắn
-                            textarea#message.form-control(name="message" rows="5" placeholder="Nhập lời nhắn...")
-                        button.btn.btn-readmore(type="submit") Gửi lời nhắn
-    //- Section 2
-    section.section
-        .container
-            +section-header({
-                headerClass: '',
-                titleClass: '',
-                name: 'Công trình đã thi công',
-                description: 'Lorem ipsum dolor Lorem ipsum dolor',
-                hasReadMore: true
-            })
-        .container-fluid
-            .row
-                .col-sm-6.col-md-3
-                    a(href="#"): img.img-fluid(src="./assets/img/banner1.png" alt="slide")
-                .col-sm-6.col-md-9
-                    .slide-content-3.owl-carousel
-                        +carousel(8)
-    //- Section 6
-    section.section.section--border-bottom
-        .container
-            +section-header({
-                headerClass: 'text-center',
-                titleClass: 'flex-fill',
-                name: 'Báo chí nói về chúng tôi',
-                description: 'Lorem ipsum dolor Lorem ipsum dolor',
-                hasReadMore: false
-            })
-            .owl-carousel.partner
-                - let n = 0;
-                while n < 9
-                    +carousel(1, "partner", `./assets/img/partners/partner${++n}.png`)
+      .section__header.text-uppercase
+        .section__title
+          h3.section__name Liên hệ
+      //- Nav-tabs
+      ul.nav.nav-tabs.text-uppercase
+        li.nav-item
+          a.detail__link.active(data-toggle="tab", href="#tabHN") Hà nội
+        li.nav-item
+          a.detail__link(data-toggle="tab", href="#tabHCM") HCM
+    //- Tab panes
+    .tab-content
+      .container-fluid.tab-pane.fade.active#tabHN
+        iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3725.5665005514147!2d105.768476!3d20.969917!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134532791635c5f%3A0x1d24e5bddca2966a!2zMTU3IE5ndXnhu4VuIFZp4bq_dCBYdcOibiwgSMOgIEPhuqd1LCBIw6AgxJDDtG5nLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2sus!4v1592904870022!5m2!1svi!2sus" frameborder="0" style="border:0; height:75vh; width:100%" allowfullscreen="" aria-hidden="false")
+      .container-fluid.tab-pane.fade#tabHCM
+        iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15674.683110869026!2d106.667954!3d10.836487!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xaa773ad9dadb59e1!2zTuG7mWkgdGjhuqV0IEFuIEjGsG5n!5e0!3m2!1svi!2sus!4v1592904771256!5m2!1svi!2sus" frameborder="0" style="border:0; height:75vh; width:100%" allowfullscreen="" aria-hidden="false")
+  //- hard-break
+  .container
+    hr
+  //- Form
+  section.section
+    .container
+      .row
+        .col-md-4
+          h5.contact-title Công ty sản xuất nội thất an hưng
+          p
+            i.fa.fa-globe-americas
+            strong  Giấy phép kinh doanh số: 
+            | 0107017623 do phòng Kinh doanh sở KH&ĐT TP Hà Nội cấp ngày: 06/10/2015
+          br
+          p
+            i.fa.fa-credit-card
+            strong  Ngân hành BIDV: Trần Đăng Dũng 
+            | 1991.0000.263.050
+          p
+            i.fa.fa-credit-card
+            strong  TECHCOMBANK: Trần Đăng Dũng 
+            | 1902.3397.720.013
+          p
+            a(href="#")
+              i.fab.fa-facebook-square
+              |  
+            a(href="#")
+              i.fab.fa-twitter-square
+              |  
+            a(href="#")
+              i.fab.fa-linkedin
+              |  
+            a(href="#")
+              i.fab.fa-youtube-square
+          p Mở cửa: 8h30 - 20h30 kể cả thứ 7 và CN, có vị trí đậu xe ôtô
+        .col-md-8
+          h5.contact-title Liên hệ góp ý
+          form(action="")
+            .form-group
+              label(for="name") Họ tên
+              input#name.form-control(type="text" name="name" placeholder="Nhập họ tên...")
+            .form-group
+              label(for="phone") Số điện thoại
+              input#phone.form-control(type="text" name="phone" placeholder="Nhập số điện thoại...")
+            .form-group
+              label(for="email") Email
+              input#email.form-control(type="email" name="email" placeholder="Nhập email...")
+            .form-group
+              label(for="address") Địa chỉ
+              input#address.form-control(type="text" name="address" placeholder="Nhập địa chỉ...")
+            .form-group
+              label(for="message") Lời nhắn
+              textarea#message.form-control(name="message" rows="5" placeholder="Nhập lời nhắn...")
+            button.btn.btn-readmore(type="submit") Gửi lời nhắn
+  //- Section 2
+  section.section
+    .container
+      +section-header({
+        headerClass: '',
+        titleClass: '',
+        name: 'Công trình đã thi công',
+        description: 'Lorem ipsum dolor Lorem ipsum dolor',
+        hasReadmore: true
+      })
+    .container-fluid
+      .row
+        .col-sm-6.col-md-3
+          a(href="#"): img.img-fluid(src="./assets/img/banner1.png" alt="slide")
+        .col-sm-6.col-md-9
+          .slide-content-3.owl-carousel
+            +carousel(8)
+  //- Section 6
+  section.section.section--border-bottom
+    .container
+      +section-header({
+        headerClass: 'text-center',
+        titleClass: 'flex-fill',
+        name: 'Báo chí nói về chúng tôi',
+        description: 'Lorem ipsum dolor Lorem ipsum dolor',
+        hasReadmore: false
+      })
+      .owl-carousel.partner
+        - let n = 0;
+        while n < 9
+          +carousel(1, "partner", `./assets/img/partners/partner${++n}.png`)

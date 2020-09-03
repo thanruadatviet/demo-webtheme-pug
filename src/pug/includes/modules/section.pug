@@ -1,50 +1,50 @@
 //- Section-header
 mixin section-header(sec)
-    .section__header(class=sec.headerClass)
-        .d-flex.justify-content-between
-            .section__title(class=sec.titleClass)
-                h3.section__name= sec.name
-                span= sec.description
-            if sec.hasReadmore
-                .section__button
-                    button.btn.btn-readmore Xem thêm
+  .section__header(class=sec.headerClass)
+    .d-flex.justify-content-between
+      .section__title(class=sec.titleClass)
+        h3.section__name= sec.name
+        span= sec.description
+      if sec.hasReadmore
+        .section__button
+          button.btn.btn-readmore Xem thêm
 
 //- about-list
 mixin about-list(list)
-    ul.about-list
-        each item in list
-            li.about-item
-                h5: a.about-item__title(href="#")= item.title
-                span.about-item__desc= item.desc
+  ul.about-list
+    each item in list
+      li.about-item
+        h5: a.about-item__title(href="#")= item.title
+        span.about-item__desc= item.desc
 
 //- product-list
 mixin productList(list)
-    each item in list
-        .col-md-4
-            .product-item
-                a.product-link(href="#")
-                    img.img-fluid(src=`./assets/img/home/${item.img}`)
-                    span.product-label.text-uppercase= item.name
+  each item in list
+    .col-md-4
+      .product-item
+        a.product-link(href="#")
+          img.img-fluid(src=`./assets/img/home/${item.img}`)
+          span.product-label.text-uppercase= item.name
 
 //- other-list
 mixin otherList(list)
-    each item in list
-        li: a(href="#")= item
+  each item in list
+    li: a(href="#")= item
 
 //- other-product
 mixin otherProduct(i, desc)
-    - let n = 0;
-    while n < i
-        a.other-product(href="#")
-            .other-product__item
-                img.other-product__img(src="./assets/img/slide.jpg" alt=n++)
-            span.other-product__detail= desc
+  - let n = 0;
+  while n < i
+    a.other-product(href="#")
+      .other-product__item
+        img.other-product__img(src="./assets/img/slide.jpg" alt=n++)
+      span.other-product__detail= desc
 
 //- side-list
 mixin sideList(list)
-    each item in list
-        li
-            a.side-item(href='#')
-                i.fas.fa-chevron-right.fa-xs
-                |  
-                = item
+  each item in list
+    li
+      a.side-item(href='#')
+        i.fas.fa-chevron-right.fa-xs
+        |  
+        = item

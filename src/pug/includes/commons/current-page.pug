@@ -1,14 +1,14 @@
 //- Current page
 mixin current-page
-    nav.breadcrumb--bg(aria-label="breadcrumb")
-        .container
-            ol.breadcrumb
-                li.breadcrumb-item
-                    a(href="index.html", title="Trang chủ")
-                        i.fa.fa-home
-                        |  Trang chủ
-                li.breadcrumb-item
-                    a(href="#", title="Title link")
-                        | Sub page
-                li.breadcrumb-item.active(aria-current="page")
-                    | Current page
+  nav.breadcrumb--bg(aria-label="breadcrumb")
+    .container
+      ol.breadcrumb
+        li.breadcrumb-item
+          a(href="index.html", title="Trang chủ")
+            i.fa.fa-home
+            |  Trang chủ
+        li.breadcrumb-item
+          a(href="#", title="Title link")
+            | Sub page
+        li.breadcrumb-item.active(aria-current="page")
+          | Current page

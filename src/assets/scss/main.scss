@@ -183,11 +183,18 @@ body{
 }
 
 /* Other list */
-.section-other--left{
+.sp-other--left{
   padding-left: 15px;
 }
-.section-other__header{
+.sp-other__header{
   padding: 10px 0;
+}
+.sp-tablist{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba($main-color, $alpha: 0.1);
 }
 .other-list{
   li{

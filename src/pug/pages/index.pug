@@ -93,15 +93,16 @@ block content
     .container
       .row
         .col-sm-6.col-md-3
-          .section-other--left
-            .section-other__header.text-uppercase
+          .sp-other--left
+            .sp-other__header.text-uppercase
               .section__title
                 h3.section__name Sản phẩm khác       
             ul.other-list.text-uppercase
               +otherList(otherList)    
               a.txt-readmore.active(href="#") Xem thêm
         .col-sm-6.col-md-9
-          .d-flex.justify-content-between
+          //- .d-flex.justify-content-between
+          .sp-tablist
             ul.nav.nav-tabs(role="tablist")
               li.nav-item
                 a.btn.btn-default.active#sp-moi-tab(data-toggle="tab", href="#sp-moi", role="tab", aria-controls="sp-moi", aria-selected="true") Sản phẩm mới
