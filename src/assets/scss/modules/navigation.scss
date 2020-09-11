@@ -79,9 +79,14 @@ li.has-sub ul li .nav-link,
       }
     }
   }
-  li.has-sub ul li .nav-link:hover{
-    color: $light-color;
-    background: $main-color;
+  li.has-sub ul li .nav-link{
+    color: $black;
+    background: $white;
+    border-bottom: 1px solid $light-color;
+    &:hover{
+      color: $white;
+      background: $main-color;
+    }
   }
   .nav-icon,
   .sub-icon{
